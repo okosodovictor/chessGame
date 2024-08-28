@@ -1,4 +1,4 @@
-# Knight Path Technical Take Home
+
 ## Knight Move Calculator
 
 This project is an Azure Functions-based solution to calculate the shortest path for a knight's move in chess from a start position to an end position. It consists of three serverless functions:
@@ -78,21 +78,3 @@ Breadth-First Search Algorithm:
 BFS was chosen for its suitability in finding the shortest path in an unweighted grid, such as a chessboard. This ensures optimal performance and correctness in determining the knight's path.
 The algorithm accounts for all possible moves of the knight and ensures the shortest path is calculated efficiently.
 
-
-### Think about ways you can leverage the stored data to optimize your solution.
-
-Caching Frequently Accessed Data
-Result Caching:
-
-Strategy: Implement an in-memory cache (such as Azure Cache for Redis) to store frequently accessed knight move results.
-Benefit: Reduces the number of read operations on Cosmos DB, leading to faster response times for common queries.
-
-Query Optimization
-Indexing:
-
-Strategy: Ensure that the RequestId property is indexed in Cosmos DB.
-Benefit: Significantly improves query performance when retrieving results based on the RequestId.
-Partitioning Strategy:
-
-Strategy: Use a partition key that optimizes data distribution and access patterns. For instance, using RequestId as the partition key if queries are mostly based on this field.
-Benefit: Enhances read and write efficiency by distributing data evenly across partitions.
